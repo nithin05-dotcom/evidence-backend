@@ -7,7 +7,12 @@ const axios = require("axios");
 const FormData = require("form-data");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
 const USERS_FILE = path.join(__dirname, "users.json");
